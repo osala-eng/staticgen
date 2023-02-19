@@ -1,6 +1,6 @@
 # Simple workflow for building and deploying markdown files using staticgen
-name: "Build and deploy markdown using staticgen"
-description: Builds static files and deploys using pages deploy
+name: "staticgen build"
+description: Builds markdown files to html static site
 author: Jashon Osala
 inputs:
   url:
@@ -15,9 +15,10 @@ inputs:
     description: "Path of directory containing markdown files"
     required: true
     default: "markdown"
-outputs:
-  page_url: 
-    description: "Deployment output url"
+  artifact_name:
+    description: "Artifact name"
+    required: false
+    default: "staticgen"
   
   # Generate build files 
 runs:
@@ -49,11 +50,4 @@ runs:
         uses: actions/upload-pages-artifact@v1
         with:
           path: ${{ inputs.build }}
-          name: staticgen
-
-      # Deploy to github
-      - name: Deploy to GitHub Pages
-        id: deployment
-        uses: actions/deploy-pages@v1
-        with:
-          artifact_name: staticgen
+          name: ${{ inputs.artifact_name }}
