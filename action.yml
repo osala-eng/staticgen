@@ -18,7 +18,6 @@ inputs:
 outputs:
   page_url: 
     description: "Deployment output url"
-    value: ${{ steps.deployment.outputs.page_url }}   
   
   # Generate build files 
 runs:
