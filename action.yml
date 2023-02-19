@@ -35,6 +35,7 @@ runs:
       - name: Checkout
         uses: actions/checkout@v3
       - name: Generate build
+        shell: bash
         run: sudo staticgen --deploy-to-github "${MD_PATH}" "$BUILD_PATH" "${INPUT_URL}"
         env:
           INPUT_URL: ${{ inputs.url }}
