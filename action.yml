@@ -51,3 +51,6 @@ runs:
         with:
           path: ${{ inputs.build }}
           name: ${{ inputs.artifact_name }}
+branding:
+  icon: activity
+  color: red
