@@ -1,5 +1,5 @@
 # Simple workflow for building and deploying markdown files using staticgen
-name: Build and deploy markdown
+name: "Build and deploy markdown using staticgen"
 description: Builds static files and deploys using pages deploy
 author: Jashon Osala
 inputs:
