@@ -15,6 +15,10 @@ inputs:
     description: "Path of directory containing markdown files"
     required: true
     default: "markdown"
+outputs:
+  page_url: 
+    description: "Deployment output url"
+    value: ${{ steps.deployment.outputs.page_url }}   
   
   # Generate build files 
 runs:
