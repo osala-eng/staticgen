@@ -1,58 +1,56 @@
-# Simple workflow for deploying static content to GitHub Pages
-name: Deploy static content to Pages
-
-on:
-  # Runs on pushes targeting the default branch
-  push:
-    branches: ["main"]
-
-  # Allows you to run this workflow manually from the Actions tab
-  workflow_dispatch:
-
-# Sets permissions of the GITHUB_TOKEN to allow deployment to GitHub Pages
-permissions:
-  contents: read
-  pages: write
-  id-token: write
-
-# Allow one concurrent deployment
-concurrency:
-  group: "pages"
-  cancel-in-progress: true
-
-jobs:
-  # Single deploy job since we're just deploying
+# Simple workflow for building and deploying markdown files using staticgen
+name: Build and deploy markdown
+description: Builds static files and deploys using pages deploy
+author: Jashon Osala
+inputs:
+  url:
+    description: "Base url for the repos github-pages"
+    required: true
+    default: ""
   build:
-    runs-on: ubuntu-latest
-    environment:
-      name: staticgen
-      url: ${{ steps.deployment.outputs.page_url }}
+    description: "Path of directory to output build"
+    required: false
+    default: "build"
+  md:
+    description: "Path of directory containing markdown files"
+    required: true
+    default: "markdown"
+  
+  # Generate build files 
+runs:
+    using: composite
     steps:
       - name: Checkout
         uses: actions/checkout@v3
-      - name: Generate a custom build
+      - name: Install staticgen
+        shell: bash
         run: |
+          git clone -n https://github.com/osala-eng/developer-challange.git /tmp/staticgen --depth 1
+          cd /tmp/staticgen
+          git checkout HEAD static-site-generator
           cd static-site-generator
           sudo ./install
-          cd ..
-          mkdir -p markdown
-          cp README.md markdown/developer-challenge.md
-          cp static-site-generator/README.md markdown/static-site-generator.md
-          sudo rm -rf build
-          echo -e $url
-          sudo staticgen --deploy-to-github markdown build "https://osala-eng.github.io/developer-challange"
+          cd ~
+          rm -rf /tmp/staticgen
+      - name: Checkout
+        uses: actions/checkout@v3
+      - name: Generate build
+        run: sudo staticgen --deploy-to-github "${MD_PATH}" "$BUILD_PATH" "${INPUT_URL}"
+        env:
+          INPUT_URL: ${{ inputs.url }}
+          MD_PATH: ${{ inputs.md }}
+          BUILD_PATH: ${{ inputs.build }}
+      
+      # Upload build artifacs
       - name: Upload build using upload page artifacts
         uses: actions/upload-pages-artifact@v1
         with:
-          path: build
+          path: ${{ inputs.build }}
+          name: staticgen
 
-  deploy:
-    runs-on: ubuntu-latest
-    environment:
-      name: staticgen
-      url: ${{ steps.deployment.outputs.page_url }}
-    needs: build
-    steps:
+      # Deploy to github
       - name: Deploy to GitHub Pages
         id: deployment
         uses: actions/deploy-pages@v1
+        with:
+          artifact_name: staticgen
