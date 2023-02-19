@@ -26,14 +26,13 @@ runs:
         shell: bash
         run: |
           git clone -n https://github.com/osala-eng/developer-challange.git /tmp/staticgen --depth 1
+          export POS=$(PWD)
           cd /tmp/staticgen
           git checkout HEAD static-site-generator
           cd static-site-generator
           sudo ./install
-          cd ~
+          cd $POS
           rm -rf /tmp/staticgen
-      - name: Checkout
-        uses: actions/checkout@v3
       - name: Generate build
         shell: bash
         run: sudo staticgen --deploy-to-github "${MD_PATH}" "$BUILD_PATH" "${INPUT_URL}"
