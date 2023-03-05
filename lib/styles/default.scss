@@ -1,0 +1,172 @@
+$--width: 800px;
+$--accent-color: rgb(12, 128, 118);
+$--dodger-blue: DodgerBlue;
+$--border-color: #e7f2ea;
+$--highlight: rgb(39, 80, 100);
+$--nav-accent: #e7f2ea;
+
+@mixin code-highlight-color {
+    color: white;
+    background-color: $--highlight;
+    padding: 1px 4px;
+    border-radius: 6px;
+    cursor: pointer;
+}
+
+#root-element-div {
+    margin: 5rem auto 3rem auto;
+    padding: 1rem 4rem;
+    width: $--width;
+    max-width: 1080px;
+    border: 0.5px solid $--border-color;
+    border-radius: 8px;
+
+    img {
+        max-width: $--width;
+    }
+}
+
+.btn {
+    background-color: $--accent-color;
+    border: none;
+    color: white;
+    font-size: 1.5rem;
+    cursor: pointer;
+    width: fit-content;
+    height: 100%;
+    padding: 0 0.5rem;
+
+    &:hover {
+        background-color: white;
+        color: black;
+    }
+}
+
+footer {
+    margin-top: 1rem;
+    border-top: 1px solid rgb(164, 161, 161);
+    height: 100px;
+
+    h4 {
+        margin-top: 1rem;
+        text-align: center;
+    }
+}
+
+pre {
+    // box-shadow: 1px 1px .5px rgb(88, 83, 83);
+    margin-bottom: 1rem;
+    position: relative;
+    display: grid;
+
+    code {
+        border-radius: 8px;
+    }
+}
+
+h1,
+h2 {
+    text-align: center;
+    margin-bottom: 1rem;
+    code {
+        @include code-highlight-color();
+    }
+}
+
+p {
+    margin-bottom: 0.5rem;
+    code {
+        @include code-highlight-color();
+    }
+}
+
+a {
+    text-decoration: none;
+    color: $--accent-color;
+}
+
+ul {
+    margin: 0.5rem 1rem 0.5rem 3rem;
+}
+
+.copy-btn {
+    position: absolute;
+    top: 4px;
+    right: 4px;
+    border: none;
+    color: $--highlight;
+    font-size: 1rem;
+    cursor: pointer;
+    width: 2rem;
+    height: 2rem;
+    padding: 0.5rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 8px;
+    background-color: transparent;
+
+    &:hover {
+        background-color: rgb(145, 126, 126);
+        color: rgb(255, 255, 255);
+    }
+}
+
+.text-to-clipboard {
+    position: absolute;
+    top: -2rem;
+    color: black;
+    font-size: 1rem;
+    font-weight: 500;
+}
+
+.fa-file-check {
+    color: green;
+}
+
+#home-root-element-div {
+    display: flex;
+    flex-direction: row;
+    margin-top: 5rem;
+    min-height: 100%;
+    #home-nav {
+        flex: 1;
+        padding: 0;
+        background-color: $--nav-accent;
+
+        #nav-title {
+            width: 100%;
+            background-color: $--accent-color;
+            text-align: center;
+            font-size: 2rem;
+            color: white;
+            border-bottom: 0.5px solid white;
+        }
+    }
+    #home-articles {
+        flex: 4;
+        .articles-class {
+            max-width: 800px;
+            padding: 0 2rem;
+            border: 1px solid $--border-color;
+            margin: 0 auto;
+        }
+    }
+    .navigation-option {
+        display: grid;
+        align-items: center;
+
+        a {
+            padding: 4px 8px;
+            margin: 0 1rem;
+            font-size: 1.2rem;
+            background-color: $--dodger-blue;
+            color: white;
+            border-bottom: 1px solid white;
+        }
+    }
+
+    img {
+        max-width: $--width;
+    }
+}

@@ -1,0 +1,54 @@
+$--accent-color: rgb(12, 128, 118);
+
+#root-navbar-div {
+    width: 100%;
+    position: fixed;
+    top: 0;
+    height: 4rem;
+    background-color: $--accent-color;
+    color: white;
+    display: flex;
+    flex-direction: row;
+    z-index: 1;
+    justify-content: space-between;
+
+    .nav-split {
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+        gap: 1rem;
+
+        a {
+            padding: 0 1rem;
+            text-decoration: none;
+            width: max-content;
+            height: 100%;
+            background-color: transparent;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+
+            h3 {
+                color: white;
+            }
+
+            &:hover {
+                background-color: white;
+                h3 {
+                    color: black;
+                }
+            }
+        }
+    }
+
+    #left-nav-split {
+        align-items: flex-end;
+        margin-right: 2rem;
+    }
+
+    #right-nav-split {
+        align-items: flex-start;
+        margin-left: 2rem;
+    }
+}

@@ -14,4 +14,9 @@ Example
     md: foldername
 ```
 
+# Static-site generator
+
+Generates static site
+
 Author: [Jashon Osala](https://github.com/osala-eng)
+View Repository: [Repository](https://github.com/osala-eng/staticgen)

@@ -1,0 +1,29 @@
+@media only screen and (max-width: 600px) {
+  #root-element-div {
+    width: 100%;
+
+    img {
+      max-width: 100%;
+    }
+  }
+
+  #home-root-element-div {
+    display: flex;
+    #home-nav {
+      position: absolute;
+      display: none;
+    }
+    #home-articles {
+      flex: 1;
+
+      .articles-class{
+        padding: 0;
+        width: 95%;
+        margin: 0 auto;
+      }
+    }
+  }
+  .text-to-clipboard {
+    display: none;
+  }
+}

@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en" id="root-html-id">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="shortcut icon" href="{{ git-hub-root-url }}/assets/favicon.png" type="image/x-icon">
+    <link rel="stylesheet" href="{{ git-hub-root-url }}/main.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.3.0/css/all.min.css"
+        integrity="sha512-SzlrxWUlpfuzQ+pcUCosxcglQRNAq/DZjVsC0lE40xsADsfeQoEypE+enwcOiGjk/bSuGGKHEyjSoQ1zVisanQ=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.7.0/styles/base16/solarized-light.min.css">
+    <!-- Head tags from markdown file-->
+    <title>{{ project-title }}</title>
+</head>
+<frameset>
+    <frame src="{{ git-hub-root-url }}/homepage.html">
+</frameset>
+<script src="{{ git-hub-root-url }}/scripts/script.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.7.0/highlight.min.js"></script>
+<script>
+    hljs.highlightAll();
+    setupPage();
+</script>
+
+</html>

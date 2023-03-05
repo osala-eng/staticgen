@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="shortcut icon" href="{{ git-hub-root-url }}/assets/favicon.png" type="image/x-icon">
+    <link rel="stylesheet" href="{{ git-hub-root-url }}/main.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.3.0/css/all.min.css"
+        integrity="sha512-SzlrxWUlpfuzQ+pcUCosxcglQRNAq/DZjVsC0lE40xsADsfeQoEypE+enwcOiGjk/bSuGGKHEyjSoQ1zVisanQ=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.7.0/styles/base16/solarized-light.min.css">
+    <!-- Head tags from markdown file-->
+    {{ head-data }}
+</head>
+
+<body>
+    <div id="root-navbar-div">
+        <div class="nav-split" id="right-nav-split">
+            <button class="btn" onclick="goHome()">
+                <i class="fa fa-home"></i> Home
+            </button>
+            <button class="btn" id="menu-btn" onclick="showMenu('menu-btn')">
+                <i class="fa fa-bars"></i> Menu
+            </button>
+        </div>
+        <div class="nav-split" id="left-nav-split">
+            <button class="btn">
+                About
+            </button>
+        </div>
+    </div>
+    <div id="root-element-div">
+        <!-- Body data from markdown file -->
+        {{ body-data }}
+    </div>
+</body>
+<footer>
+    <h4>© 2023</h4>
+</footer>
+<script src="{{ git-hub-root-url }}/scripts/script.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.7.0/highlight.min.js"></script>
+<script>
+    hljs.highlightAll();
+    setupPage();
+</script>
+
+</html>

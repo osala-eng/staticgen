@@ -1,0 +1,6 @@
+**/*build
+**/*test*
+**/*empty
+**/*tmp
+**/*node_modules
+**/*.json

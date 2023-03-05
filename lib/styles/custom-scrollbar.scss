@@ -1,0 +1,21 @@
+::-webkit-scrollbar {
+    opacity: 0;
+    width: 1rem;
+}
+
+::-webkit-scrollbar:hover {
+    opacity: 1;
+}
+
+::-webkit-scrollbar-track {
+    background-color: $--accent-color;
+}
+
+::-webkit-scrollbar-thumb {
+    background: white;
+    border-radius: .5rem;
+}
+
+::-webkit-scrollbar-corner {
+    background-color: inherit;
+}
